@@ -20,8 +20,6 @@ services:
       context: ./
       dockerfile: Dockerfile.dev
     restart: always
-    volumes:
-      - ./cit-api:/code
     environment:
       - ENV_RUNTIME=dev
     env_file:
