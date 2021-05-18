@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 
 import com.zacpez.sampledocker.exceptions.UserNotFoundException;
-import com.zacpez.sampledocker.entity.User;
-import com.zacpez.sampledocker.entity.UserRepository;
+import com.zacpez.sampledocker.dto.mapper.UserDto;
+import com.zacpez.sampledocker.model.User;
+import com.zacpez.sampledocker.model.UserRepository;
 
 
 @RestController
@@ -25,7 +26,7 @@ public class UserController {
   private final UserRepository userRepository;
 
   @PostMapping("/users")
-  public void postUser(@RequestBody User userDto) {
+  public void postUser(@RequestBody UserDto userDto) {
     User user = new User();
     user.setFirstName(userDto.getFirstName());
     user.setLastName(userDto.getLastName());
@@ -34,9 +35,9 @@ public class UserController {
   }
 
   @PutMapping("/users/{id}")
-  public void putUser(@PathVariable long id, @RequestBody User userDto) {
-    User user = new Student();
-    user.setUser_id(id);
+  public void putUser(@PathVariable long id, @RequestBody UserDto userDto) {
+    User user = new User();
+    user.setId(id);
     user.setFirstName(userDto.getFirstName());
     user.setLastName(userDto.getLastName());
     user.setAge(userDto.getAge());
