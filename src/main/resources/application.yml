@@ -4,6 +4,6 @@ spring:
       ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: "jdbc:postgresql://localhost:5432/postgresql"
+    url: "jdbc:postgresql://postgres:5432/postgresql"
     username: postgresql
     password: postgresql

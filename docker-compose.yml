@@ -18,14 +18,13 @@ services:
   backend:
     build:
       context: ./
-      dockerfile: Dockerfile.dev
-    restart: always
+      dockerfile: Dockerfile.${ENV}
     environment:
       - ENV_RUNTIME=dev
     env_file:
       - ./.env
     ports:
-      - "8080:8080"
+      - 8080:8080
     depends_on: 
       - postgres
 
@@ -33,3 +32,4 @@ services:
 volumes:
   postgresql-data:
     driver: local
+
